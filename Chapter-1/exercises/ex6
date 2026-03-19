@@ -1,0 +1,20 @@
+Program to count blanks, tabs, and newlines
+------------------------------------------------------------
+#include <stdio.h>
+
+int main() {
+	int c, spaces, tabs, newline;
+	
+	spaces = 0;
+	tabs = 0;
+	newline = 0;
+	while ((c = getchar()) != EOF )
+		if (c == ' ')
+			++spaces;
+		else if (c == '\t')
+			++tabs;
+		else if (c == '\n')
+			++newline;
+	printf("spaces = %d\ntabs = %d\nnewline = %d\n", spaces, tabs, newline);
+	
+}
