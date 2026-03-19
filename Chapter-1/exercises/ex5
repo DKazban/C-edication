@@ -1,0 +1,9 @@
+Print the EOF value
+--------------------------------------
+
+#include <stdio.h>
+
+int main() {
+    printf("Result %d\n", getchar() != EOF);
+    return 0;
+}
