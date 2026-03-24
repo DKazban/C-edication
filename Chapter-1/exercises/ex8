@@ -1,0 +1,36 @@
+Horizontal histogram of word lengths. Implemented with bounds checking and proper array initialization
+---------------------------------------------------------------
+# include <stdio.h>
+
+int main() {
+	int c, i, len;
+	int wl[15];
+	
+	len = 0;
+	for (i = 0; i < 15; i++) {
+		wl[i] = 0;
+	}
+	
+	while ((c = getchar()) != EOF) {
+		if (c != ' ' && c != '\t' && c != '\n') {
+			++len;
+		}
+		else {
+			if(len > 0) {
+				if ( len < 15)
+					++wl[len];
+				len = 0;
+			}
+		}
+		
+	}
+	printf("histogram: ");
+	for (i =0; i < 15; i++) {
+		printf("%2d | ", i);
+		for (int j = 0; j < wl[i]; j ++) {
+			putchar('*');
+		}
+	  putchar('\n');
+	}
+	return 0;
+}
