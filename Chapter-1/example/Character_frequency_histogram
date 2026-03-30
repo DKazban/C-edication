@@ -1,0 +1,34 @@
+Implemented a program to count the frequency of each ASCII character from input and display it as a horizontal histogram
+
+#include <stdio.h>
+
+int main () {
+	int c,i;
+	int lt[256];
+	
+	for (i=0; i < 256; i++) {
+		lt[i] = 0;
+	}
+	
+	while ((c = getchar()) != EOF) {
+		++lt[c];
+	}
+	
+	for (i = 0;i<256; i++) {
+		if(lt[i] > 0) {
+			if (i == '\n') printf("\\n");
+            else if (i == '\t') printf("\\t");
+            else if (i == ' ')  printf("' '");
+            else printf(" %c", i);
+            
+            printf(" | ");
+            for (int j = 0; j < lt[i]; j++) {
+            	putchar('*');
+            }
+            
+            putchar('\n');
+		}
+	}
+	
+	return 0;
+}
