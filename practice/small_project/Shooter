@@ -1,3 +1,5 @@
+Type the following commands on a single line: “r” to reload, ‘f’ to shoot, and “q” to quit
+-----------------------------------------------------------
 #include <stdio.h>
 
 int main() {
