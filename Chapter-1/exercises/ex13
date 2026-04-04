@@ -1,0 +1,76 @@
+This program reads a string of any length, removes trailing spaces, and reverses it 
+-------------------------------------------------------
+# include <stdio.h>
+
+# define MAXLINE 1000
+
+int getline(char s[], int lim);
+void reverse(char s[]);
+void copy(char to[], char from[]);
+
+int main () {
+	int len;
+	char line[MAXLINE];
+
+	while((len = getline(line, MAXLINE)) > 0) {
+		int i = len - 2;
+		
+		while (i >= 0 && (line[i] == ' ' || line[i] == '\t'))
+			--i;
+		
+		line[i+1] = '\n';
+		line[i+2] = '\0';
+		
+		
+		if (i >= 0) {
+		
+			reverse(line);
+			printf("%s", line); 
+		}
+	}
+	return 0;
+}
+
+int getline(char s[], int lim) {
+	int c, i;
+	for (i = 0;(c = getchar()) != EOF && c != '\n';i++) {
+		if (i < lim - 1) {
+		s[i] = c;
+		}
+	}
+	
+	if (c == '\n') {
+		if (i < lim - 1)
+		s[i] = c;
+		i++;
+	}
+	
+	
+	if (i < lim)
+	s[i] = '\0';
+	else
+	s[lim-1] = '\0';
+	return i;
+	
+	 
+}
+
+void reverse(char s[]) {
+	int i,j,temp;
+	j = 0;
+	
+	while(s[j] != '\0' && s[j] != '\n') {
+		j++;
+	}
+	--j;
+	
+	i = 0;
+	while(i<j) {
+		temp =s[i];
+		s[i] = s[j];
+		s[j] = temp;
+		
+		++i;
+		--j;
+	}
+}
