@@ -1,0 +1,49 @@
+Before a battle, you can enter a command: if you enter stealth mode by pressing “s,” there is a 40% chance 
+that damage will be blocked and your health wont decrease, but it will cost 5 energy points
+or you can activate armor mode, which prevents health loss but costs 15 energy points.
+----------------------------------------------------------------------------------
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+	srand(time(NULL));
+
+	int armor_on = 1;
+	int health = 100;
+	int energy = 20;
+	int damage = 40;
+	char command;
+	printf("Health: %d |Energy = %d \n", health, energy);
+	printf("Incoming damage %d \n", damage);
+	
+	
+	while (health > 0) {
+		int roll = rand() % 100;
+		command = getchar();
+		if (command == '\n') 
+		continue;
+		if (command == 's') {
+			printf("Stealth mode is activated\n");
+			if (roll > 40) {
+				printf("DODGE \n");
+				energy -= 5;
+				printf("Health: %d,Energy: %d", health, energy);
+			}
+			else {
+				printf("augh \n");
+				health -= 40;
+				energy -= 5;
+				printf("Health: %d,Energy: %d", health, energy);
+			}
+		}
+		
+		else if (command == 'a') {
+			printf("Armored mode is activated\n");
+			energy -= 15;
+			printf("Health: %d,Energy: %d", health, energy);
+			
+		}
+	}
+	return 0;
+}
