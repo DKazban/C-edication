@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int wood = 0;
+int iron = 0;
+
+void collect(void);
+void inventory(void);
+void craft(void);
+
+int main() {
+	int c;
+	srand(time(NULL));
+	
+	while ((c = getchar()) != '0') {
+		
+		if (c == '\n') 
+		continue;
+		
+		if (c == '1') {
+			collect();
+		}
+		
+		else if (c == '2') {
+			inventory();
+		}
+		
+		else if (c == '3') {
+			craft();
+		}
+		
+	}
+	
+	return 0;
+}
+
+void collect(void) {
+	int w_found = rand() % 5 + 1;
+	int i_found = rand() % 5 + 1;
+	
+	iron += i_found;
+	wood += w_found;
+	
+}
+
+void inventory(void) {
+	printf("wood : %d, iron : %d", wood, iron);
+}
+
+void craft(void) {
+	if (wood >= 5 && iron >= 2) {
+		wood -= 5;
+		iron -= 2;
+		printf("-5x wood \n-5x iron \nYou've crafted an axe! \n");
+	}
+	
+	else {
+		printf("nu uh");
+	}
+}
