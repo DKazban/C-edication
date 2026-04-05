@@ -1,0 +1,31 @@
+This program replaces all tabulators with the correct number of spaces
+-------------------------------------------------
+# include <stdio.h>
+
+#define TABINC 8
+
+int main() {
+	int c,i,pos;
+	
+	pos = 0;
+	while((c = getchar()) != EOF) {
+		if (c == '\t') {
+			int nb = TABINC - (pos % TABINC);
+			for (i = 0; i < nb; i++) {
+				pos++;
+				putchar(' ');
+			}
+			
+		}
+		
+		else if (c == '\n') {
+			putchar(c);
+			pos = 0;
+		}
+		
+		else {
+			putchar(c);
+			pos++;
+		}
+	}
+}
