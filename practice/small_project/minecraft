@@ -52,7 +52,7 @@ void craft(void) {
 	if (wood >= 5 && iron >= 2) {
 		wood -= 5;
 		iron -= 2;
-		printf("-5x wood \n-5x iron \nYou've crafted an axe! \n");
+		printf("-5x wood \n-2x iron \nYou've crafted an axe! \n");
 	}
 	
 	else {
