@@ -1,0 +1,45 @@
+Converting a hexadecimal number to decimal
+---------------------------------------------------
+# include <stdio.h>
+
+int htoi(char s[]);
+
+int main() {
+	printf("0x1F: %d\n", htoi("0x1F"));
+	printf("FF: %d\n", htoi("FF"));
+	return 0;	
+}
+
+int	htoi(char s[]) {
+	int n = 0;
+	
+	int i = 0;
+	if (s[i] == '0' ) {
+		i++;
+		if (s[i] == 'x' || s[i] == 'X')
+		i++;
+	}
+	else {
+		i = 0;
+	}
+	int digit;
+	for (; (s[i] >= '0' && s[i] <= '9') || 
+	(s[i] >= 'a' && s[i] <= 'f') || 
+	(s[i] >= 'A' && s[i] <= 'F'); i++) {
+		if (s[i] >= '0' && s[i] <= '9') {
+			digit = s[i] - '0';
+		}
+		
+		else if(s[i] >= 'a' && s[i] <= 'f') {
+			digit = s[i] - 'a' + 10;
+		}
+		
+		else if(s[i] >= 'A' && s[i] <= 'F') {
+			digit = s[i] - 'A' + 10;
+		}
+		
+	n = 16 * n + digit;
+		
+	}
+	return n;
+}
