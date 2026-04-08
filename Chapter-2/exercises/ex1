@@ -1,0 +1,16 @@
+The program defines ranges for variables of the following types: 
+char, short, int, and long (both signed and unsigned)
+-------------------------------------
+#include <stdio.h>
+#include <limits.h>
+
+int main() {
+
+	printf("%d, %u, %u \n%d, %u, %u \n%d, %u, %u \n%ld, %lu, %lu", SCHAR_MIN,SCHAR_MAX, UCHAR_MAX, 
+	SHRT_MIN, SHRT_MAX, USHRT_MAX,
+	INT_MIN, INT_MAX, UINT_MAX,
+	LONG_MIN, LONG_MAX, ULONG_MAX
+	);
+	return 0;
+	
+}
