@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int isPowerOfTwo(int n);
+
+int main() {
+	int num = 4;
+	printf("Число %d степень двойки? Ответ: %d\n", num, isPowerOfTwo(num));
+	return 0;
+}
+
+int isPowerOfTwo(int n) {
+	return ((n & (n-1)) == 0) ? 1 : 0;
+}
