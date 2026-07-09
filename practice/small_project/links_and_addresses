@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+typedef struct Node{
+	char name[20];
+	int status;
+	struct Node *next;
+}Gear;
+
+int main() {
+	Gear slot1 = {"Helmet", 25, NULL};
+	Gear slot2 = {"Platecarrier", 60, NULL};
+	Gear slot3 = {"Boots", 20, NULL};
+	Gear slot4 = {"Glovest", 100, NULL};
+	
+	slot1.next = &slot2;
+	slot2.next = &slot3;
+	slot3.next = &slot4;
+	
+	int count_break = 0;
+	Gear *current = &slot1;
+	
+	while(current != NULL) {
+		if(current->status >= 30) {
+			printf("In danger: %s\n", current->name);
+			count_break += 1;
+		}
+		
+		current = current->next;
+	}
+	printf("Total ruined items to drop: %d", count_break);
+	return 0;
+}
