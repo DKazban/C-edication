@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+
+typedef struct Node {
+	char name[20];
+	int espresso;
+	int milk;
+}Recipe;
+
+int main() {
+	Recipe menu[3] = {
+		{"Cappuccino", 1, 150},
+		{"FlatWhite", 2, 100},
+    	{"Latte", 1, 250}
+	};
+	
+	char order[20] = "Cappuccino";
+	
+	for(int i = 0; i < 3; i++) {
+		if(strcmp(order, menu[i].name) == 0) {
+			printf("Found! %s needs %d shots and %d ml of milk", menu[i].name, menu[i].espresso, menu[i].milk );
+			break;
+		}
+	}
+	
+	return 0;
+}
