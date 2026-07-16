@@ -1,4 +1,6 @@
 You need to create a file named “raw_logs.txt” and write something like this in it: 10293_mAx, 941_aNNa
+To start the program, enter any password consisting of numbers and one letter; if the last character is the correct letter (M\m), the program will run.
+For example: 4378756345m
 -----------------------------------
 #include <stdio.h>
 #include <string.h>
