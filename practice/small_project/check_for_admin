@@ -1,0 +1,97 @@
+You need to create a file named “raw_logs.txt” and write something like this in it: 10293_mAx, 941_aNNa
+-----------------------------------
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
+
+void check_file(FILE *f);
+
+int main() {
+    
+    //              password                //
+    puts("Enter password for admin");
+
+    
+    while(1) {
+        char c;
+        c = getchar();
+        if(isdigit(c));
+        if(isalpha(c)) {
+            if(c == 'm' || c == 'M') {                
+                ungetc(c, stdin);
+                char role = getchar();
+                printf("Welcome back, ur role is %c\n", role);
+                break;
+            }
+            else{
+                fprintf(stderr, "Error\n");
+                exit(1);
+            }
+        }
+    }
+
+    //              password                //
+
+    //              FILE                    //
+
+    FILE *logs;
+    FILE *pay;
+    logs = fopen("raw_logs.txt", "r");
+    pay = fopen("payroll.txt", "w");
+    check_file(logs);
+    check_file(pay);
+    //              clean name              //
+    char clean_name[50];
+    clean_name[0] = '\0';
+    char line[100];
+    while(fgets(line, sizeof(line), logs)) {
+        line[strcspn(line, "\n")] = '\0'; 
+        int under = -1;
+
+        for (int i = 0;i < strlen(line); i++) {
+            if(line[i] == '_') {
+                under = i;
+                break;
+            }
+        }
+        int j = 0;
+        for (int i = under + 1;i <strlen(line); i++ ) {
+            clean_name[j] = line[i];
+            j++;
+        }
+        clean_name[j] = '\0';
+        if(strlen(clean_name) > 0) {
+            clean_name[0] = toupper(clean_name[0]);
+            for(int i = 1; i < strlen(clean_name); i++) {
+                clean_name[i] = tolower(clean_name[i]);
+            }
+        }
+        
+
+        int shifts[7] = {12, 12, 12, 12, 12, 12, 12};
+        int total = 0;
+        for(int i = 0; i < 7; i++) {
+            total += shifts[i];
+        }
+
+        fprintf(pay, "Бариста: %s | Часы: %d\n", clean_name, total);
+    }
+    
+    
+    //              clean name              //
+
+    fclose(logs);
+    fclose(pay);
+
+    puts("The report was successfully generated!");
+
+    return 0;
+}
+
+void check_file(FILE *file) {
+    if(file == NULL) {
+        fprintf(stderr, "Nope");
+        exit(1);
+    }
+}
