@@ -1,0 +1,69 @@
+#include <stdio.h>
+int main() {
+    int vysota, horizontal, vetrical = 0;
+    printf("print ur number");
+    scanf("%d %d %d", &vysota, &horizontal, &vetrical);
+    printf("%d %d %d", vysota, horizontal, vetrical);
+    
+    
+    for(int i = 0; i < vetrical; i++) {
+        //vertical
+        int riadok = 1;
+        
+        for(int j = 0; j <vysota; j++) {
+            //prva cast
+            for(int i = 1; i <= riadok;i++) {
+                printf("%d ", riadok); //print num
+                
+                
+            }
+            for(int s = 0; s < (vysota - riadok); s++) {
+                printf("- "); //print -
+            }
+
+
+            for(int k = 0; k < horizontal - 1; k++) {
+                //more horizontal
+
+                for(int i = 1; i <= riadok;i++) {
+                    printf("%d ", riadok); //print num
+                }
+                for(int s = 0; s < (vysota - riadok); s++) {
+                    printf("- "); //print -
+                }
+
+            }
+
+
+            printf("\n");
+            riadok++;
+        }
+
+        riadok = vysota - 1;  
+        for(int j = vysota -1; j > 0; j--) {
+            //druha cast
+           for(int w = 1; w <=riadok;w++) {
+                printf("%d ", riadok); //print num   
+            }
+            for(int s = 0; s < (vysota - riadok); s++) {
+                printf("- "); //print -
+            }
+
+            for(int k = 0; k < horizontal - 1; k++) {
+
+
+                for(int w = 1; w <=riadok;w++) {
+                    printf("%d ", riadok); //print num   
+                }
+                for(int s = 0; s < (vysota - riadok); s++) {
+                    printf("- "); //print -
+                }
+                
+            }
+            printf("\n");
+            riadok--;
+        }
+    }
+    
+    return 0;
+}
