@@ -1,0 +1,26 @@
+int main() {
+    int arr[] = {0, -3, 5, -4, -2, 3, 1, 0};
+    int len = sizeof(arr) / sizeof(arr[0]);
+    int sum_L = 0;
+    int sum_R = 0;
+    for(int i = 0; i < len; i++) {
+        for(int x = 0; x < i; x++) {
+            sum_L+=arr[x];
+            //printf("%d ", arr[x]);
+        }
+        //printf("||%d|| ", arr[i]);
+        for(int y = i+1; y < len;y++) {
+            sum_R+=arr[y];
+            //printf("%d ", arr[y]);
+        }
+        if(sum_L == sum_R) {
+            printf("%d ", i);
+        }
+        sum_L = 0, sum_R = 0;
+        //printf("\n%d,%d", sum_L, sum_R);
+        //printf("\n");
+    }
+
+    return 0;
+    
+}
