@@ -1,0 +1,21 @@
+int main() {
+    int arr[] =  {2, 3, -8, 7, -1, 2, 3};
+    int len = sizeof(arr) / sizeof(arr[0]);
+    int sum = 0;
+    int max = arr[0];
+    int i = 0;
+    
+    while( i < len) {
+        sum += arr[i];
+        if(sum > max) {
+            max = sum;
+        }
+        if(sum < 0){
+            sum = 0;
+        }
+        i++;
+    }
+    printf("\n%d ", max);
+    return 0;
+    
+}
