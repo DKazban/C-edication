@@ -1,0 +1,39 @@
+int main() {
+    int arr[] = {-6, 4, -5, 8, -10, 0, 8 };
+    int len = sizeof(arr) / sizeof(arr[0]);
+    int negative = 0, pozitive = 0, zero = 0;
+    int sub = 1;
+    int max_neg = -99999999999;
+    for(int i = 0;i <len; i++){
+        if(arr[i] > 0) {
+            pozitive++;
+        }
+        if(arr[i] < 0) {
+            negative++;
+            if(arr[i] > max_neg) {
+                max_neg = arr[i];
+            }
+        }
+        if(arr[i] == 0) {
+            zero++;
+        }
+
+    }
+    
+    int skipped = 0;
+
+    for(int i = 0;i <len; i++){
+        if(negative % 2 != 0 && arr[i] == max_neg && skipped == 0) {
+            skipped++;
+            continue;
+        }
+        if(arr[i] != 0) {
+            sub *= arr[i];
+        }
+    }
+    printf("%d\n", sub);
+
+
+    return 0;
+    
+}
