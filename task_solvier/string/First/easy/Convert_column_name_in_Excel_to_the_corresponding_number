@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char arr[] = "ALH";
+    int sum = 0;
+    for(int i = 0; i <strlen(arr); i++) {
+        int val = arr[i] - 'A' + 1;
+        sum = sum*26+val;
+    }
+    printf("%d ", sum);
+
+
+    return 0;
+}
