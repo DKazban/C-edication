@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+int val(char c);
+
+int main() {
+    char in[] ="XCIX";
+    int sum = 0;
+    for(int i = 0;in[i] != '\0'; i++) {
+            int current = val(in[i]);
+            int next = val(in[i+1]);
+            if(current < next) {
+                sum -= current;
+            }
+            else{
+                sum += current;
+            }
+    }
+    printf("%d ", sum);
+    return 0;
+}
+
+int val(char c) {
+
+    switch (c) {
+        case 'I':
+            return  1;
+            break;
+        case 'V':
+            return 5;
+            break;
+        case 'X':
+            return 10;
+            break; 
+        case 'L':
+            return 50;
+            break;
+        case 'C':
+            return 100;
+            break;
+        case 'D':
+            return 500;
+            break;
+        case 'M':
+            return 1000;
+            break;
+        default:
+            return 0;
+        }
+
+
+}
+
