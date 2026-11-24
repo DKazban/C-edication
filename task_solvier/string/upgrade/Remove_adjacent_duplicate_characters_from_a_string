@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+
+int main() {
+    char arr[] = "AABBBCDDD";
+    int w = 0;
+    int i = 0;
+    for(i; arr[i] != '\0'; i++) {
+        if(arr[i] != arr[i+1]) {
+            arr[w] = arr[i];
+            w++;
+        }
+
+    }
+    arr[w] = '\0';
+    printf("%s ", arr);
+    return 0;
+}
